@@ -1,0 +1,25 @@
+# 設定ファイルの見本。コピーして config.yaml という名前で使ってください。
+# 「#」から後ろはメモなので、動作には関係ありません。
+
+# 集める先のサイト（練習用に公開されている架空の書店）
+base_url: https://books.toscrape.com/
+
+# 集めるカテゴリ。空（[]）なら全カテゴリ。例: [Mystery, Travel]
+categories: []
+
+# 1回取りに行くごとに待つ秒数。相手のサーバーに負荷をかけないため 0.5 以上にしてください
+delay_seconds: 1.0
+
+# 1回の取得を待つ上限（秒）と、失敗したときにやり直す回数
+timeout_seconds: 15
+max_retries: 3
+
+# 詳細ページ（在庫数・商品コード）も取るか。true にすると、件数ぶん時間がかかります（1,000件で約17分）
+fetch_details: false
+
+# 結果（Excel・履歴）とログを置くフォルダ
+output_dir: output
+log_dir: logs
+
+# 終わったら Slack・Teams・Discord に知らせる場合は、Incoming Webhook の URL を書く（空なら通知しない）
+webhook_url: ""

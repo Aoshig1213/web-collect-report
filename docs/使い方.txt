@@ -1,0 +1,20 @@
+Web データ収集・Excel レポート ツール（webcollect）の使い方
+
+■ 動かし方
+1. このフォルダの webcollect.exe をダブルクリックします。
+2. 黒い画面に進み具合が出ます。全カテゴリ（1,000件）で1分半ほどかかります。
+3. 終わると、output フォルダに report_日付_時刻.xlsx ができます。
+
+■ 設定を変えるとき
+config.yaml をメモ帳で開いて書き換えます。
+・特定のカテゴリだけ集める: categories: [Mystery, Travel]
+・在庫数と商品コードも取る: fetch_details: true（1,000件で約17分）
+・終わったら Slack などに知らせる: webhook_url に Incoming Webhook の URL を書く
+
+■ 毎日決まった時間に動かすとき
+Windows の「タスク スケジューラ」で「基本タスクの作成」を選び、
+「プログラムの開始」に webcollect.exe、「開始」にこのフォルダを指定します。
+2回目からは、Excel の「前回との差分」シートに新規・値上げ・値下げ・在庫切れなどが出ます。
+
+■ うまく動かないとき
+logs\webcollect.log に、何が起きたかが残ります。この内容を添えてご連絡ください。
